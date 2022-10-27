@@ -24,6 +24,7 @@ namespace Notes.Forms
         {
             this.lblTitle.Text = Title;
             this.txtContent.Text = Content;
+            if (this.txtContent.Text.Split('\n').Length >= 10) txtContent.ScrollBars = ScrollBars.Vertical;
         }
     }
 }

@@ -20,23 +20,30 @@ namespace Notes.DataManagement
 
         public void WriteToFile()
         {
-            File.AppendAllText(filePath, $"{this.Title}~{this.Content}");
+            File.AppendAllText(filePath, $"{this.Title}~#{this.Content}~~");
         }
 
         public List<NoteData> ReadFromFile()
         {
             if (File.Exists(filePath))
             {
-                List<string> lines = File.ReadAllLines(filePath).ToList();
+                string allText = File.ReadAllText(filePath);
+                List<string> lines = allText.Split(new[] { "~~" }, StringSplitOptions.None).ToList();
 
-                foreach (string line in lines)
+                if (lines != null)
                 {
-                    string[] li = line.Split('~');
+                    foreach (string line in lines)
+                    {
+                        if (!String.IsNullOrWhiteSpace(line))
+                        {
+                            string[] li = line.Split(new[] { "~#" }, StringSplitOptions.None);
 
-                    NoteData data = new NoteData();
-                    data.Title = li[0];
-                    data.Content = li[1];
-                    allData.Add(data);
+                            NoteData data = new NoteData();
+                            data.Title = li[0];
+                            data.Content = li[1];
+                            allData.Add(data);
+                        }
+                    }
                 }
             }
 

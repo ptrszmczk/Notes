@@ -65,6 +65,7 @@
             this.btnDelete.Text = "Usuń";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnModify
             // 
@@ -107,6 +108,7 @@
             // 
             // flpNotesFlowPanel
             // 
+            this.flpNotesFlowPanel.AutoScroll = true;
             this.flpNotesFlowPanel.BackColor = System.Drawing.Color.Gray;
             this.flpNotesFlowPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpNotesFlowPanel.Location = new System.Drawing.Point(0, 55);

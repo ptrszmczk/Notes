@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.pTitle = new System.Windows.Forms.Panel();
-            this.pContent = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.pContent = new System.Windows.Forms.Panel();
             this.txtContent = new System.Windows.Forms.TextBox();
+            this.cbDelete = new System.Windows.Forms.CheckBox();
             this.pTitle.SuspendLayout();
             this.pContent.SuspendLayout();
             this.SuspendLayout();
@@ -39,6 +40,7 @@
             // pTitle
             // 
             this.pTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.pTitle.Controls.Add(this.cbDelete);
             this.pTitle.Controls.Add(this.lblTitle);
             this.pTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.pTitle.Location = new System.Drawing.Point(0, 0);
@@ -46,8 +48,20 @@
             this.pTitle.Size = new System.Drawing.Size(446, 100);
             this.pTitle.TabIndex = 0;
             // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblTitle.Location = new System.Drawing.Point(27, 40);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(45, 24);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "Title";
+            // 
             // pContent
             // 
+            this.pContent.AutoScroll = true;
+            this.pContent.AutoSize = true;
             this.pContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.pContent.Controls.Add(this.txtContent);
             this.pContent.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -56,33 +70,40 @@
             this.pContent.Size = new System.Drawing.Size(446, 241);
             this.pContent.TabIndex = 1;
             // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(49, 38);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(35, 13);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "label1";
-            // 
             // txtContent
             // 
             this.txtContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtContent.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtContent.Location = new System.Drawing.Point(0, 0);
+            this.txtContent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtContent.Location = new System.Drawing.Point(20, 20);
+            this.txtContent.Margin = new System.Windows.Forms.Padding(20);
             this.txtContent.Multiline = true;
             this.txtContent.Name = "txtContent";
             this.txtContent.ReadOnly = true;
-            this.txtContent.Size = new System.Drawing.Size(446, 241);
+            this.txtContent.Size = new System.Drawing.Size(406, 201);
             this.txtContent.TabIndex = 0;
+            this.txtContent.Text = "Content";
+            // 
+            // cbDelete
+            // 
+            this.cbDelete.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cbDelete.Location = new System.Drawing.Point(416, 0);
+            this.cbDelete.Name = "cbDelete";
+            this.cbDelete.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.cbDelete.Size = new System.Drawing.Size(30, 30);
+            this.cbDelete.TabIndex = 1;
+            this.cbDelete.UseVisualStyleBackColor = true;
+            this.cbDelete.Visible = false;
             // 
             // NoteControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.Controls.Add(this.pContent);
             this.Controls.Add(this.pTitle);
+            this.MinimumSize = new System.Drawing.Size(446, 341);
             this.Name = "NoteControl";
             this.Size = new System.Drawing.Size(446, 341);
             this.pTitle.ResumeLayout(false);
@@ -90,6 +111,7 @@
             this.pContent.ResumeLayout(false);
             this.pContent.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -99,5 +121,6 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel pContent;
         private System.Windows.Forms.TextBox txtContent;
+        private System.Windows.Forms.CheckBox cbDelete;
     }
 }
