@@ -36,6 +36,7 @@ namespace Notes
                 NoteControl note = new NoteControl();
                 note.Title = addNote.Data.Title;
                 note.Content = addNote.Data.Content;
+                note.Date = addNote.Data.Date;
                 flpNotesFlowPanel.Controls.Add(note);
                 note.WriteTexts();
             }
@@ -51,6 +52,7 @@ namespace Notes
                 NoteControl note = new NoteControl();
                 note.Title = data.Title;
                 note.Content = data.Content;
+                note.Date = data.Date;
                 flpNotesFlowPanel.Controls.Add(note);
                 note.WriteTexts();
             }
@@ -58,7 +60,19 @@ namespace Notes
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            flpNotesFlowPanel.Controls.Clear();
+            NoteData file = new NoteData();
+            List<NoteData> allData = file.ReadFromFile();
 
+            foreach (var data in allData)
+            {
+                NoteControlDelete note = new NoteControlDelete();
+                note.Title = data.Title;
+                note.Content = data.Content;
+                note.Date = data.Date;
+                flpNotesFlowPanel.Controls.Add(note);
+                note.WriteTexts();
+            }
         }
     }
 }

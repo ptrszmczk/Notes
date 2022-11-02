@@ -65,6 +65,12 @@
     <Compile Include="Forms\NoteControl.Designer.cs">
       <DependentUpon>NoteControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\NoteControlDelete.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\NoteControlDelete.Designer.cs">
+      <DependentUpon>NoteControlDelete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\AddNoteForm.resx">
@@ -75,6 +81,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\NoteControl.resx">
       <DependentUpon>NoteControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NoteControlDelete.resx">
+      <DependentUpon>NoteControlDelete.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

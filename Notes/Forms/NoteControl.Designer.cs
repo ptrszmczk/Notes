@@ -31,8 +31,8 @@
             this.pTitle = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pContent = new System.Windows.Forms.Panel();
+            this.lblDate = new System.Windows.Forms.Label();
             this.txtContent = new System.Windows.Forms.TextBox();
-            this.cbDelete = new System.Windows.Forms.CheckBox();
             this.pTitle.SuspendLayout();
             this.pContent.SuspendLayout();
             this.SuspendLayout();
@@ -40,7 +40,6 @@
             // pTitle
             // 
             this.pTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.pTitle.Controls.Add(this.cbDelete);
             this.pTitle.Controls.Add(this.lblTitle);
             this.pTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.pTitle.Location = new System.Drawing.Point(0, 0);
@@ -63,12 +62,26 @@
             this.pContent.AutoScroll = true;
             this.pContent.AutoSize = true;
             this.pContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.pContent.Controls.Add(this.lblDate);
             this.pContent.Controls.Add(this.txtContent);
             this.pContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pContent.Location = new System.Drawing.Point(0, 100);
             this.pContent.Name = "pContent";
             this.pContent.Size = new System.Drawing.Size(446, 241);
             this.pContent.TabIndex = 1;
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblDate.ForeColor = System.Drawing.Color.Gray;
+            this.lblDate.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblDate.Location = new System.Drawing.Point(17, 210);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(30, 13);
+            this.lblDate.TabIndex = 2;
+            this.lblDate.Text = "Date";
+            this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtContent
             // 
@@ -80,21 +93,9 @@
             this.txtContent.Multiline = true;
             this.txtContent.Name = "txtContent";
             this.txtContent.ReadOnly = true;
-            this.txtContent.Size = new System.Drawing.Size(406, 201);
+            this.txtContent.Size = new System.Drawing.Size(406, 170);
             this.txtContent.TabIndex = 0;
             this.txtContent.Text = "Content";
-            // 
-            // cbDelete
-            // 
-            this.cbDelete.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.cbDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cbDelete.Location = new System.Drawing.Point(416, 0);
-            this.cbDelete.Name = "cbDelete";
-            this.cbDelete.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.cbDelete.Size = new System.Drawing.Size(30, 30);
-            this.cbDelete.TabIndex = 1;
-            this.cbDelete.UseVisualStyleBackColor = true;
-            this.cbDelete.Visible = false;
             // 
             // NoteControl
             // 
@@ -116,11 +117,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel pTitle;
-        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel pContent;
         private System.Windows.Forms.TextBox txtContent;
-        private System.Windows.Forms.CheckBox cbDelete;
+        private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.Label lblTitle;
+        protected System.Windows.Forms.Panel pTitle;
     }
 }

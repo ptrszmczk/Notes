@@ -34,12 +34,14 @@
             this.splitter = new System.Windows.Forms.Splitter();
             this.btnAdd = new System.Windows.Forms.Button();
             this.flpNotesFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.pButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // pButtons
             // 
             this.pButtons.BackColor = System.Drawing.Color.DimGray;
+            this.pButtons.Controls.Add(this.checkBox1);
             this.pButtons.Controls.Add(this.btnDelete);
             this.pButtons.Controls.Add(this.btnModify);
             this.pButtons.Controls.Add(this.splitter);
@@ -116,6 +118,18 @@
             this.flpNotesFlowPanel.Size = new System.Drawing.Size(984, 530);
             this.flpNotesFlowPanel.TabIndex = 1;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.BackColor = System.Drawing.Color.IndianRed;
+            this.checkBox1.Location = new System.Drawing.Point(556, 23);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(71, 23);
+            this.checkBox1.TabIndex = 4;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = false;
+            // 
             // frmNotepad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -127,6 +141,7 @@
             this.Name = "frmNotepad";
             this.Text = "Notes";
             this.pButtons.ResumeLayout(false);
+            this.pButtons.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -139,6 +154,7 @@
         private System.Windows.Forms.Splitter splitter;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.FlowLayoutPanel flpNotesFlowPanel;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 

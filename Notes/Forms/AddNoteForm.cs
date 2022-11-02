@@ -40,6 +40,7 @@ namespace Notes.Forms
         {
             note.Title = txtTitle.Text;
             note.Content = txtContent.Text;
+            note.Date = DateTime.Now.ToString();
             txtContentSize = txtContent.Size.Height;
             note.WriteToFile();
             SaveButtonClicked(null);

@@ -17,10 +17,11 @@ namespace Notes.DataManagement
 
         public string Title { get; set; }
         public string Content { get; set; }
+        public string Date { get; set; }
 
         public void WriteToFile()
         {
-            File.AppendAllText(filePath, $"{this.Title}~#{this.Content}~~");
+            File.AppendAllText(filePath, $"{this.Title}~#{this.Content}~#{this.Date}~~");
         }
 
         public List<NoteData> ReadFromFile()
@@ -41,6 +42,7 @@ namespace Notes.DataManagement
                             NoteData data = new NoteData();
                             data.Title = li[0];
                             data.Content = li[1];
+                            data.Date = li[2];
                             allData.Add(data);
                         }
                     }
