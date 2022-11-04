@@ -15,6 +15,8 @@ namespace Notes
 {
     public partial class frmNotepad : Form
     {
+        private NoteData _file = new NoteData();
+
         public frmNotepad()
         {
             InitializeComponent();
@@ -42,37 +44,106 @@ namespace Notes
             }
         }
 
+        private void note_DeleteButtonClicked(object sender, EventArgs e)
+        {
+            DeleteConfirmationForm confirmation = new DeleteConfirmationForm();
+            confirmation.ConfirmationButton += new EventHandler(note_ConfirmationButtnClicked);
+            confirmation.Show();
+
+            NoteControlDelete deleteNote = sender as NoteControlDelete;
+            NoteData deleteFromFile = new NoteData();
+            deleteFromFile.DeleteFromFile(deleteNote.Title, deleteNote.Content, deleteNote.Date);
+            flpNotesFlowPanel.Controls.Remove(deleteNote);
+            deleteNote.Dispose();
+        }
+
+        private void note_ConfirmationButtnClicked(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void note_ModifyButtonClicked(object sender, EventArgs e)
+        {
+            NoteControlDelete deleteNote = sender as NoteControlDelete;
+        }
+
         private void WriteData()
         {
-            NoteData file = new NoteData();
-            List<NoteData> allData = file.ReadFromFile();
+            List<NoteData> allData = _file.ReadFromFile();
+            DisplayUserControls(allData, 0);
+        }
 
+        private void DisplayUserControls(List<NoteData> allData, params int[] p)
+        {
             foreach (var data in allData)
             {
-                NoteControl note = new NoteControl();
-                note.Title = data.Title;
-                note.Content = data.Content;
-                note.Date = data.Date;
-                flpNotesFlowPanel.Controls.Add(note);
-                note.WriteTexts();
+                if (p[0] == 0)
+                {
+                    NoteControl note = new NoteControl();
+                    note.Title = data.Title;
+                    note.Content = data.Content;
+                    note.Date = data.Date;
+                    flpNotesFlowPanel.Controls.Add(note);
+                    note.WriteTexts();
+                }
+                if (p[0] == 1)
+                {
+                    NoteControlDelete note = new NoteControlDelete();
+                    note.DeleteButton += new EventHandler(note_DeleteButtonClicked);
+                    note.Title = data.Title;
+                    note.Content = data.Content;
+                    note.Date = data.Date;
+                    flpNotesFlowPanel.Controls.Add(note);
+                    note.WriteTexts();
+                }
+                if (p[0] == 2)
+                {
+                    NoteControlModify note = new NoteControlModify();
+                    note.ModifyButton += new EventHandler(note_ModifyButtonClicked);
+                    note.Title = data.Title;
+                    note.Content = data.Content;
+                    note.Date = data.Date;
+                    flpNotesFlowPanel.Controls.Add(note);
+                    note.WriteTexts();
+                }
             }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void cbModify_CheckedChanged(object sender, EventArgs e)
         {
             flpNotesFlowPanel.Controls.Clear();
-            NoteData file = new NoteData();
-            List<NoteData> allData = file.ReadFromFile();
 
-            foreach (var data in allData)
+            if (cbModify.Checked)
             {
-                NoteControlDelete note = new NoteControlDelete();
-                note.Title = data.Title;
-                note.Content = data.Content;
-                note.Date = data.Date;
-                flpNotesFlowPanel.Controls.Add(note);
-                note.WriteTexts();
+                cbDelete.Checked = false;
+                List<NoteData> allData = _file.ReadFromFile();
+                DisplayUserControls(allData, 2);
             }
+            else if(!cbModify.Checked && !cbDelete.Checked)
+            {
+                WriteData();
+            }
+        }
+
+        private void cbDelete_CheckedChanged(object sender, EventArgs e)
+        {
+            flpNotesFlowPanel.Controls.Clear();
+
+            if (cbDelete.Checked)
+            {
+                cbModify.Checked = false;
+                List<NoteData> allData = _file.ReadFromFile();
+                DisplayUserControls(allData, 1);
+            }
+            else if (!cbModify.Checked && !cbDelete.Checked)
+            {
+                WriteData();
+            }
+        }
+
+        private void flpNotesFlowPanel_Click(object sender, EventArgs e)
+        {
+            cbModify.Checked = cbDelete.Checked = false;
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using Notes.Forms;
 using static System.Windows.Forms.LinkLabel;
+using System.ComponentModel;
 
 namespace Notes.DataManagement
 {
@@ -15,6 +16,7 @@ namespace Notes.DataManagement
         List<NoteData> allData = new List<NoteData>();
         List<string> outputData = new List<string>();
 
+        public static int Id { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
         public string Date { get; set; }
@@ -26,10 +28,11 @@ namespace Notes.DataManagement
 
         public List<NoteData> ReadFromFile()
         {
+            allData = new List<NoteData>();
+
             if (File.Exists(filePath))
             {
-                string allText = File.ReadAllText(filePath);
-                List<string> lines = allText.Split(new[] { "~~" }, StringSplitOptions.None).ToList();
+                List<string> lines = GetLinesFromFile(filePath);
 
                 if (lines != null)
                 {
@@ -51,5 +54,14 @@ namespace Notes.DataManagement
 
             return allData;
         }
+
+        public void DeleteFromFile(string title, string content, string date)
+        {
+            string allText = File.ReadAllText(filePath);
+            allText = allText.Replace($"{title}~#{content}~#{date}~~", String.Empty);
+            File.WriteAllText(filePath, allText);
+        }
+
+        private List<string> GetLinesFromFile(string filePath) => File.ReadAllText(filePath).Split(new[] { "~~" }, StringSplitOptions.None).ToList();
     }
 }

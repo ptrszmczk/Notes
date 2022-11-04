@@ -10,15 +10,14 @@ using System.Windows.Forms;
 
 namespace Notes.Forms
 {
-    public partial class NoteControlDelete : NoteControl
+    public partial class NoteControlModify : NoteControl
     {
-        public event EventHandler DeleteButton;
+        public event EventHandler ModifyButton;
 
-        public NoteControlDelete()
+        public NoteControlModify()
         {
             InitializeComponent();
         }
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
             DeleteButtonClicked(null);
@@ -26,10 +25,10 @@ namespace Notes.Forms
 
         protected virtual void DeleteButtonClicked(EventArgs e)
         {
-            EventHandler deleted = DeleteButton;
-            if (deleted != null)
+            EventHandler modified = ModifyButton;
+            if (modified != null)
             {
-                deleted(this, e);
+                modified(this, e);
             }
         }
     }

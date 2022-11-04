@@ -29,21 +29,19 @@
         private void InitializeComponent()
         {
             this.pButtons = new System.Windows.Forms.Panel();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnModify = new System.Windows.Forms.Button();
+            this.cbDelete = new System.Windows.Forms.CheckBox();
+            this.cbModify = new System.Windows.Forms.CheckBox();
             this.splitter = new System.Windows.Forms.Splitter();
             this.btnAdd = new System.Windows.Forms.Button();
             this.flpNotesFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.pButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // pButtons
             // 
             this.pButtons.BackColor = System.Drawing.Color.DimGray;
-            this.pButtons.Controls.Add(this.checkBox1);
-            this.pButtons.Controls.Add(this.btnDelete);
-            this.pButtons.Controls.Add(this.btnModify);
+            this.pButtons.Controls.Add(this.cbDelete);
+            this.pButtons.Controls.Add(this.cbModify);
             this.pButtons.Controls.Add(this.splitter);
             this.pButtons.Controls.Add(this.btnAdd);
             this.pButtons.Dock = System.Windows.Forms.DockStyle.Top;
@@ -53,36 +51,40 @@
             this.pButtons.Size = new System.Drawing.Size(984, 55);
             this.pButtons.TabIndex = 0;
             // 
-            // btnDelete
+            // cbDelete
             // 
-            this.btnDelete.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnDelete.Font = new System.Drawing.Font("Segoe UI Variable Text", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDelete.Image = global::Notes.Properties.Resources.close;
-            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(850, 5);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.btnDelete.Size = new System.Drawing.Size(129, 45);
-            this.btnDelete.TabIndex = 3;
-            this.btnDelete.Text = "Usuń";
-            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.cbDelete.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cbDelete.Dock = System.Windows.Forms.DockStyle.Right;
+            this.cbDelete.Font = new System.Drawing.Font("Segoe UI Variable Text", 14.25F, System.Drawing.FontStyle.Bold);
+            this.cbDelete.Image = global::Notes.Properties.Resources.close;
+            this.cbDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cbDelete.Location = new System.Drawing.Point(850, 5);
+            this.cbDelete.Name = "cbDelete";
+            this.cbDelete.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.cbDelete.Size = new System.Drawing.Size(129, 45);
+            this.cbDelete.TabIndex = 9;
+            this.cbDelete.Text = "Usuń";
+            this.cbDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbDelete.UseVisualStyleBackColor = true;
+            this.cbDelete.CheckedChanged += new System.EventHandler(this.cbDelete_CheckedChanged);
             // 
-            // btnModify
+            // cbModify
             // 
-            this.btnModify.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnModify.Font = new System.Drawing.Font("Segoe UI Variable Text", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnModify.Image = global::Notes.Properties.Resources.pen;
-            this.btnModify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModify.Location = new System.Drawing.Point(143, 5);
-            this.btnModify.Name = "btnModify";
-            this.btnModify.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.btnModify.Size = new System.Drawing.Size(173, 45);
-            this.btnModify.TabIndex = 2;
-            this.btnModify.Text = "Modyfikuj";
-            this.btnModify.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnModify.UseVisualStyleBackColor = true;
+            this.cbModify.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cbModify.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbModify.Dock = System.Windows.Forms.DockStyle.Left;
+            this.cbModify.Font = new System.Drawing.Font("Segoe UI Variable Text", 14.25F, System.Drawing.FontStyle.Bold);
+            this.cbModify.Image = global::Notes.Properties.Resources.pen;
+            this.cbModify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cbModify.Location = new System.Drawing.Point(143, 5);
+            this.cbModify.Name = "cbModify";
+            this.cbModify.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.cbModify.Size = new System.Drawing.Size(173, 45);
+            this.cbModify.TabIndex = 8;
+            this.cbModify.Text = "Modyfikuj";
+            this.cbModify.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbModify.UseVisualStyleBackColor = true;
+            this.cbModify.CheckedChanged += new System.EventHandler(this.cbModify_CheckedChanged);
             // 
             // splitter
             // 
@@ -117,18 +119,7 @@
             this.flpNotesFlowPanel.Name = "flpNotesFlowPanel";
             this.flpNotesFlowPanel.Size = new System.Drawing.Size(984, 530);
             this.flpNotesFlowPanel.TabIndex = 1;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.BackColor = System.Drawing.Color.IndianRed;
-            this.checkBox1.Location = new System.Drawing.Point(556, 23);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(71, 23);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = false;
+            this.flpNotesFlowPanel.Click += new System.EventHandler(this.flpNotesFlowPanel_Click);
             // 
             // frmNotepad
             // 
@@ -141,7 +132,6 @@
             this.Name = "frmNotepad";
             this.Text = "Notes";
             this.pButtons.ResumeLayout(false);
-            this.pButtons.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -149,12 +139,11 @@
         #endregion
 
         private System.Windows.Forms.Panel pButtons;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.Splitter splitter;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.FlowLayoutPanel flpNotesFlowPanel;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox cbDelete;
+        private System.Windows.Forms.CheckBox cbModify;
     }
 }
 

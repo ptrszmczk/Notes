@@ -32,7 +32,7 @@ namespace Notes.Forms
 
         private void panel1_MouseClick(object sender, MouseEventArgs e)
         {
-            MessageBox.Show("adsf");
+            //MessageBox.Show("adsf");
         }
     }
 }

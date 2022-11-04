@@ -1,6 +1,6 @@
 ﻿namespace Notes.Forms
 {
-    partial class NoteControlDelete
+    partial class NoteControlModify
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,33 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnModify = new System.Windows.Forms.Button();
             this.pTitle.SuspendLayout();
             this.SuspendLayout();
             // 
             // pTitle
             // 
-            this.pTitle.Controls.Add(this.btnDelete);
-            this.pTitle.Controls.SetChildIndex(this.btnDelete, 0);
+            this.pTitle.Controls.Add(this.btnModify);
+            this.pTitle.Controls.SetChildIndex(this.btnModify, 0);
             // 
-            // btnDelete
+            // btnModify
             // 
-            this.btnDelete.BackgroundImage = global::Notes.Properties.Resources.close;
-            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnDelete.FlatAppearance.BorderSize = 0;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Location = new System.Drawing.Point(407, 3);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(36, 38);
-            this.btnDelete.TabIndex = 1;
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnModify.BackgroundImage = global::Notes.Properties.Resources.pen;
+            this.btnModify.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnModify.FlatAppearance.BorderSize = 0;
+            this.btnModify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModify.Location = new System.Drawing.Point(407, 3);
+            this.btnModify.Name = "btnModify";
+            this.btnModify.Size = new System.Drawing.Size(36, 38);
+            this.btnModify.TabIndex = 2;
+            this.btnModify.UseVisualStyleBackColor = true;
             // 
-            // NoteControlDelete
+            // NoteControlModify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "NoteControlDelete";
+            this.Name = "NoteControlModify";
             this.pTitle.ResumeLayout(false);
             this.pTitle.PerformLayout();
             this.ResumeLayout(false);
@@ -64,6 +63,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnModify;
     }
 }

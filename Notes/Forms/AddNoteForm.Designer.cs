@@ -61,10 +61,9 @@
             // txtTitle
             // 
             this.txtTitle.Location = new System.Drawing.Point(18, 95);
-            this.txtTitle.Multiline = false;
             this.txtTitle.MaxLength = 40;
             this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(198, 58);
+            this.txtTitle.Size = new System.Drawing.Size(198, 20);
             this.txtTitle.TabIndex = 2;
             // 
             // txtContent
@@ -79,7 +78,7 @@
             // 
             this.lblContent.AutoSize = true;
             this.lblContent.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblContent.Location = new System.Drawing.Point(84, 177);
+            this.lblContent.Location = new System.Drawing.Point(84, 130);
             this.lblContent.Name = "lblContent";
             this.lblContent.Size = new System.Drawing.Size(58, 24);
             this.lblContent.TabIndex = 3;
