@@ -41,7 +41,7 @@
             // 
             this.lblAddNote.AutoSize = true;
             this.lblAddNote.Font = new System.Drawing.Font("Segoe UI Variable Display", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblAddNote.Location = new System.Drawing.Point(12, 9);
+            this.lblAddNote.Location = new System.Drawing.Point(21, 9);
             this.lblAddNote.Name = "lblAddNote";
             this.lblAddNote.Size = new System.Drawing.Size(195, 38);
             this.lblAddNote.TabIndex = 0;
@@ -122,7 +122,7 @@
             this.Controls.Add(this.lblAddNote);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddNoteForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dodaj Notatkę";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -130,13 +130,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblAddNote;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.TextBox txtTitle;
-        private System.Windows.Forms.TextBox txtContent;
         private System.Windows.Forms.Label lblContent;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
+        protected System.Windows.Forms.Label lblAddNote;
+        protected System.Windows.Forms.Button btnSave;
+        protected System.Windows.Forms.TextBox txtTitle;
+        protected System.Windows.Forms.TextBox txtContent;
     }
 }

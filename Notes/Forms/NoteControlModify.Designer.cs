@@ -48,6 +48,7 @@
             this.btnModify.Size = new System.Drawing.Size(36, 38);
             this.btnModify.TabIndex = 2;
             this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // NoteControlModify
             // 

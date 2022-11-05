@@ -13,11 +13,11 @@ namespace Notes.Forms
 {
     public partial class AddNoteForm : Form
     {
-        private NoteData note = new NoteData();
-        private int txtContentSize;
+        protected NoteData _note = new NoteData();
+        protected int _txtContentSize;
 
-        public NoteData Data { get { return note; } }
-        public int TxtContentSize { get { return txtContentSize; } }
+        public NoteData Data { get { return _note; } }
+        public int TxtContentSize { get { return _txtContentSize; } }
 
         public event EventHandler SaveButton;
 
@@ -36,13 +36,13 @@ namespace Notes.Forms
 
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        protected virtual void btnSave_Click(object sender, EventArgs e)
         {
-            note.Title = txtTitle.Text;
-            note.Content = txtContent.Text;
-            note.Date = DateTime.Now.ToString();
-            txtContentSize = txtContent.Size.Height;
-            note.WriteToFile();
+            _note.Title = txtTitle.Text;
+            _note.Content = txtContent.Text;
+            _note.Date = DateTime.Now.ToString();
+            _txtContentSize = txtContent.Size.Height;
+            _note.WriteToFile();
             SaveButtonClicked(null);
             Close();
         }

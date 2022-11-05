@@ -62,6 +62,13 @@ namespace Notes.DataManagement
             File.WriteAllText(filePath, allText);
         }
 
+        public void ModifyFile(string oldTitle, string oldContent, string oldDate)
+        {
+            string allText = File.ReadAllText(filePath);
+            allText = allText.Replace($"{oldTitle}~#{oldContent}~#{oldDate}~~", $"{this.Title}~#{this.Content}~#{this.Date}~~");
+            File.WriteAllText(filePath, allText);
+        }
+
         private List<string> GetLinesFromFile(string filePath) => File.ReadAllText(filePath).Split(new[] { "~~" }, StringSplitOptions.None).ToList();
     }
 }

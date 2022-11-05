@@ -16,6 +16,8 @@ namespace Notes
     public partial class frmNotepad : Form
     {
         private NoteData _file = new NoteData();
+        private NoteControlDelete _deleteNote;
+        private NoteControlModify _modifyNote;
 
         public frmNotepad()
         {
@@ -26,11 +28,19 @@ namespace Notes
         private void btnAdd_Click(object sender, EventArgs e)
         {
             AddNoteForm addNote = new AddNoteForm();
-            addNote.SaveButton += new EventHandler(note_SaveButtonClicked);
+            addNote.SaveButton += new EventHandler(note_AddSaveButtonClicked);
             addNote.Show();
+
+            List<NoteData> allData = _file.ReadFromFile();
+            if(cbDelete.Checked || cbModify.Checked)
+            {
+                cbModify.Checked = cbDelete.Checked = false;
+                flpNotesFlowPanel.Controls.Clear();
+                DisplayUserControls(allData, 0);
+            }
         }
 
-        private void note_SaveButtonClicked(object sender, EventArgs e)
+        private void note_AddSaveButtonClicked(object sender, EventArgs e)
         {
             AddNoteForm addNote = sender as AddNoteForm;
             if(addNote != null)
@@ -44,31 +54,45 @@ namespace Notes
             }
         }
 
+        private void note_ModifyButtonClicked(object sender, EventArgs e)
+        {
+            ModifyNoteForm modifyNote = new ModifyNoteForm();
+            modifyNote.SaveButton += new EventHandler(note_ModifySaveButtonClicked);
+
+            NoteControlModify modifyNoteControl = sender as NoteControlModify;
+            modifyNote.OldTitle = modifyNoteControl.Title;
+            modifyNote.OldContent = modifyNoteControl.Content;
+            modifyNote.OldDate = modifyNoteControl.Date;
+            modifyNote.DisplaySavedNote(modifyNoteControl.Title, modifyNoteControl.Content);
+            modifyNote.Show();
+        }
+
+        private void note_ModifySaveButtonClicked(object sender, EventArgs e)
+        {
+            WriteData();
+            cbModify.Checked = false;
+        }
+
         private void note_DeleteButtonClicked(object sender, EventArgs e)
         {
             DeleteConfirmationForm confirmation = new DeleteConfirmationForm();
             confirmation.ConfirmationButton += new EventHandler(note_ConfirmationButtnClicked);
             confirmation.Show();
 
-            NoteControlDelete deleteNote = sender as NoteControlDelete;
-            NoteData deleteFromFile = new NoteData();
-            deleteFromFile.DeleteFromFile(deleteNote.Title, deleteNote.Content, deleteNote.Date);
-            flpNotesFlowPanel.Controls.Remove(deleteNote);
-            deleteNote.Dispose();
+            _deleteNote = sender as NoteControlDelete;
         }
 
         private void note_ConfirmationButtnClicked(object sender, EventArgs e)
         {
-            
-        }
-
-        private void note_ModifyButtonClicked(object sender, EventArgs e)
-        {
-            NoteControlDelete deleteNote = sender as NoteControlDelete;
+            NoteData deleteFromFile = new NoteData();
+            deleteFromFile.DeleteFromFile(_deleteNote.Title, _deleteNote.Content, _deleteNote.Date);
+            flpNotesFlowPanel.Controls.Remove(_deleteNote);
+            _deleteNote.Dispose();
         }
 
         private void WriteData()
         {
+            flpNotesFlowPanel.Controls.Clear();
             List<NoteData> allData = _file.ReadFromFile();
             DisplayUserControls(allData, 0);
         }
@@ -142,6 +166,11 @@ namespace Notes
         }
 
         private void flpNotesFlowPanel_Click(object sender, EventArgs e)
+        {
+            cbModify.Checked = cbDelete.Checked = false;
+        }
+
+        private void pButtons_Click(object sender, EventArgs e)
         {
             cbModify.Checked = cbDelete.Checked = false;
         }

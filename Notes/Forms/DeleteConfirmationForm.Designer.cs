@@ -73,7 +73,10 @@
             this.Controls.Add(this.btnNo);
             this.Controls.Add(this.btnYes);
             this.Controls.Add(this.lblText);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "DeleteConfirmationForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DeleteConfirmationForm";
             this.ResumeLayout(false);
             this.PerformLayout();

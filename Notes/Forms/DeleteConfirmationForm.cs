@@ -22,6 +22,7 @@ namespace Notes.Forms
         private void btnYes_Click(object sender, EventArgs e)
         {
             ConfirmationButtonClicked(null);
+            Close();
         }
 
         private void btnNo_Click(object sender, EventArgs e)

@@ -50,6 +50,7 @@
             this.pButtons.Padding = new System.Windows.Forms.Padding(5);
             this.pButtons.Size = new System.Drawing.Size(984, 55);
             this.pButtons.TabIndex = 0;
+            this.pButtons.Click += new System.EventHandler(this.pButtons_Click);
             // 
             // cbDelete
             // 

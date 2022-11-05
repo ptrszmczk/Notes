@@ -18,12 +18,13 @@ namespace Notes.Forms
         {
             InitializeComponent();
         }
-        private void btnDelete_Click(object sender, EventArgs e)
+
+        private void btnModify_Click(object sender, EventArgs e)
         {
-            DeleteButtonClicked(null);
+            ModifyButtonClicked(null);
         }
 
-        protected virtual void DeleteButtonClicked(EventArgs e)
+        protected virtual void ModifyButtonClicked(EventArgs e)
         {
             EventHandler modified = ModifyButton;
             if (modified != null)
